@@ -17,7 +17,7 @@ Alternatively, you can use kubectl directly:
 $ kubectl apply -f path/to/kubernetes/manifests
 $ kubectl get pods
 $ kubectl logs <pod-name>
-$ kubectl delete -f ./kubernetes/
+$ kubectl delete -f path/to/kubernetes/manifests
 ```
 
 ## Output log
