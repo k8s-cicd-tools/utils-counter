@@ -15,10 +15,10 @@ Very basic pod for log writing tests. Contains the kubernetes manifests and the 
 Alternatively, you can use kubectl directly:
 
 ```
-$ kubectl apply -f path/to/kubernetes/manifests
+$ kubectl apply -f path/to/kubernetes/manifests/counter-pod.yaml
 $ kubectl get pods
 $ kubectl logs <pod-name>
-$ kubectl delete -f path/to/kubernetes/manifests
+$ kubectl delete -f path/to/kubernetes/manifests/counter-pod.yaml
 ```
 
 ## Output log
