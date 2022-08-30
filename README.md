@@ -52,11 +52,11 @@ spec:
 
 ## Resources and Dependencies
 
-| Name | Version | Required |
-|------|------|------|
+| Name       | Version | Required |
+|------------|------|------|
 | kubernetes | 1.23 | no |
-| pulum | 3.38.0 | no |
-| busybox | latest | no |
+| pulumi     | 3.38.0 | no |
+| busybox    | latest | no |
 
 
 
