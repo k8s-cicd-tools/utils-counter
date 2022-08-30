@@ -6,7 +6,7 @@ Very basic pod for log writing tests. Contains the kubernetes manifests and the 
 
 1. Install kubectl and pulumi.
 2. Clone this repo.
-3. Run `$ nmp install`
+3. Run `$ npm install`
 4. Run `$ pulumi up` to create the kubernetes resources.
 5. Run `$ kubectl get pods` to see the pods.
 6. Run `$ kubectl logs <pod-name>` to see the logs.
