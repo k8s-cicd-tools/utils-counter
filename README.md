@@ -32,7 +32,7 @@ $ kubectl delete -f path/to/kubernetes/manifests
 "Thanks for visiting devopscube! n"
 
 
-## kubernetes manifest
+## Kubernetes manifest
 
 ``` yaml
 apiVersion: v1
