@@ -6,10 +6,11 @@ Very basic pod for log writing tests. Contains the kubernetes manifests and the 
 
 1. Install kubectl and pulumi.
 2. Clone this repo.
-3. Run `$ pulumi up` to create the kubernetes resources.
-4. Run `$ kubectl get pods` to see the pods.
-5. Run `$ kubectl logs <pod-name>` to see the logs.
-6. Run `$ pulumi destroy` to delete the kubernetes resources.
+3. Rum `$ nmp install`
+4. Run `$ pulumi up` to create the kubernetes resources.
+5. Run `$ kubectl get pods` to see the pods.
+6. Run `$ kubectl logs <pod-name>` to see the logs.
+7. Run `$ pulumi destroy` to delete the kubernetes resources.
 
 Alternatively, you can use kubectl directly:
 
