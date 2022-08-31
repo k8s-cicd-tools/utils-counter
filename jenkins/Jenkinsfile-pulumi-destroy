@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage ("Pulumi up") {
+        stage ("Pulumi destroy") {
             steps {
                 nodejs(nodeJSInstallationName: "node 16.17.0") {
                     withEnv(["PATH+PULUMI=$HOME/.pulumi/bin"]) {
