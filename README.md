@@ -34,6 +34,7 @@ Environment variables required by Jenkins:
 |------------------------------------|--------------------------------------------|
 | PULUMI_ACCESS_TOKEN     | Is the access token for the Pulumi account. It is recommended to create a key with the same name in the credential manager. |
 
+configure the Pipeline script from SCM with this repository and change the Jenkinsfile path to the corresponding option to deploy.
 
 ## Output log
 "Thanks for visiting devopscube! 1"
