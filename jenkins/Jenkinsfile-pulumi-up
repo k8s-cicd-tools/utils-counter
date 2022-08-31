@@ -1,0 +1,47 @@
+pipeline {
+    agent {
+        label 'pulumi'
+    }
+
+    environment {
+        PULUMI_ACCESS_TOKEN=credentials('PULUMI_ACCESS_TOKEN')
+    }
+
+    stages {
+        stage('check if  dir exist') {
+            when { expression { return fileExists ('utils-counter') } }
+            steps {
+                deleteDir()
+            }
+        }
+
+        stage('Repo clone') {
+            steps {
+                git url: 'https://github.com/k8s-cicd-tools/utils-counter.git', branch: 'main'
+            }
+        }
+
+        stage('npm install') {
+            steps {
+                script {
+                    sh 'cd pulumi; npm install'
+                }
+            }
+        }
+
+        stage('pulumi up') {
+            steps {
+                script {
+                    sh 'cd pulumi; $HOME/.pulumi/bin/pulumi stack select dev'
+                    sh 'cd pulumi; $HOME/.pulumi/bin/pulumi up --yes'
+                }
+            }
+        }
+
+        stage('Cleaning') {
+            steps {
+                deleteDir()
+            }
+        }
+    }
+}

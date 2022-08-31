@@ -1,6 +1,6 @@
 ## Utils - Counter 
 
-Very basic pod for log writing tests. Contains the kubernetes manifests and the implementation using pulumi.
+Very basic pod for log writing tests. Contains the Kubernetes manifests, the implementation using Pulumi and the pipeline Jenkinsfile.
 
 ## How to get started
 
@@ -21,6 +21,20 @@ $ kubectl logs <pod-name>
 $ kubectl delete -f path/to/kubernetes/manifests/counter-pod.yaml
 ```
 
+Alternatively, you can use the Jenkinsfile to run the pipeline:
+
+| Jenkinsfile                        | Description                                |
+|------------------------------------|--------------------------------------------|
+| jenkins/Jenkinsfile-pulumi-up      | This will create the kubernetes resources. |
+| jenkins/Jenkinsfile-pulumi-destroy | This will delete the kubernetes resources. |
+
+Environment variables required by Jenkins:
+
+| Name                               | Description                                |
+|------------------------------------|--------------------------------------------|
+| PULUMI_ACCESS_TOKEN     | Is the access token for the Pulumi account. It is recommended to create a key with the same name in the credential manager. |
+
+
 ## Output log
 "Thanks for visiting devopscube! 1"
 
@@ -33,31 +47,13 @@ $ kubectl delete -f path/to/kubernetes/manifests/counter-pod.yaml
 "Thanks for visiting devopscube! n"
 
 
-## Kubernetes manifest
-
-``` yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: counter
-  namespace: default
-spec:
-  containers:
-  - name: count
-    image: busybox
-    args: [/bin/sh, -c,'i=0; while true; do echo "Thanks for visiting devopscube! $i"; i=$((i+1)); sleep 1; done']
-```
-
-
-
-
 ## Resources and Dependencies
 
 | Name       | Version | Required |
-|------------|------|------|
-| kubernetes | 1.23 | no |
-| pulumi     | 3.38.0 | no |
-| busybox    | latest | no |
+|------------|---------|----------|
+| kubernetes | 1.23    | no       |
+| pulumi     | 3.38.0  | no       |
+| busybox    | latest  | no       |
 
 
 
