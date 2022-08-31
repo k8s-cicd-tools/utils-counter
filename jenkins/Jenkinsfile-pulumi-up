@@ -21,19 +21,14 @@ pipeline {
             }
         }
 
-        stage('npm install') {
+        stage ("Pulumi up") {
             steps {
-                script {
-                    sh 'cd pulumi; npm install'
-                }
-            }
-        }
-
-        stage('pulumi up') {
-            steps {
-                script {
-                    sh 'cd pulumi; $HOME/.pulumi/bin/pulumi stack select dev'
-                    sh 'cd pulumi; $HOME/.pulumi/bin/pulumi up --yes'
+                nodejs(nodeJSInstallationName: "node 16.17.0") {
+                    withEnv(["PATH+PULUMI=$HOME/.pulumi/bin"]) {
+                        sh "cd pulumi && npm install"
+                        sh "cd pulumi; pulumi stack select dev"
+                        sh "cd pulumi; pulumi up --yes"
+                    }
                 }
             }
         }

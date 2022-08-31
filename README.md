@@ -1,6 +1,6 @@
-## Utils - Counter 
+## Utilities - Counter
 
-Very basic pod for log writing tests. Contains the Kubernetes manifests, the implementation using Pulumi and the pipeline Jenkinsfile.
+Very basic Pod for log writing tests. Contains Kubernetes manifests, implementation using Pulumi, and Jenkinsfile pipeline.
 
 ## How to get started
 
@@ -30,11 +30,16 @@ Alternatively, you can use the Jenkinsfile to run the pipeline:
 
 Environment variables required by Jenkins:
 
-| Name                               | Description                                |
-|------------------------------------|--------------------------------------------|
-| PULUMI_ACCESS_TOKEN     | Is the access token for the Pulumi account. It is recommended to create a key with the same name in the credential manager. |
+| Name                | Description                                |
+|---------------------|--------------------------------------------|
+| PULUMI_ACCESS_TOKEN | It is the access token to the Pulumi account. It is recommended to create a key with the same name in the credentials manager. |
 
-configure the Pipeline script from SCM with this repository, select the Branch and change the Jenkinsfile path to the corresponding option to deploy.
+Other requirements:
+1. A jenkins agent with pulum and kubectl installed and configured to connect to the kubernetes cluster.
+2. The agent must have the "pulumi" label
+3. Global tool configuration: add a NodeJS 16.17.0 installation with the name "node 16.17.0"
+4. Configure the SCM Pipeline script with this repository, select the branch and change the Jenkins file path to the corresponding option to deploy.
+
 
 ## Output log
 "Thanks for visiting devopscube! 1"
